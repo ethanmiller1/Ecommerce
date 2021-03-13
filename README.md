@@ -86,10 +86,17 @@ Refactoring
 1. run `ng build` in angular project root and copy the content of `dist` folder to `src/main/resources/static/`.
 1. create Procfile (for maven): `web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar`
 1. Ensure you have `spring-boot-starter-web` present in dependencies. It has the embedded tomcat and is automatically configured to serve static content from the static folder.
+1. Enable dyno formation under `Resources`.
+
+![](https://i.ibb.co/0FXM9TQ/image.png)
 
 * [Deploying Spring Boot Applications to Heroku](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
 * [Read this later](https://dasunpubudu.wordpress.com/2018/04/17/deploying-spring-angular-mast-stack-application-in-heroku/)
 * [Deploy Spring and Angular to same Heroku](https://stackoverflow.com/questions/44831611/spring-boot-angular-2-heroku-deployment)
+
+### Connect to JawsDB
+
+[Add JawsDB (MySQL) Hosted on Heroku](https://youtu.be/ZIYqFl6DOGQ?t=481)
 
 
 ## ng generate Command
