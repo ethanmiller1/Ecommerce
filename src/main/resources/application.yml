@@ -12,9 +12,6 @@ webapp.url: http://localhost:4200
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: ecommerceapp
-    url: jdbc:mysql://localhost:3306/full-stack-ecommerce?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: ecommerceapp
   jpa.properties.hibernate:
     dialect: org.hibernate.dialect.PostgreSQLDialect
     jdbc.lob.non_contextual_creation: true

@@ -1,7 +1,10 @@
 package com.luv2code.ecommerce.config;
 
 import com.sun.istack.NotNull;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import javax.sql.DataSource;
 
 @Configuration
 @ConfigurationProperties(prefix = "webapp")
@@ -32,5 +37,14 @@ public class WebConfig {
         return bean;
     }
 
+    @Value("${spring.datasource.url}")
+    private String dbUrl;
+
+    @Bean
+    public DataSource dataSource() {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(dbUrl);
+        return new HikariDataSource(config);
+    }
 
 }
