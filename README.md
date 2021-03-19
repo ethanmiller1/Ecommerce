@@ -98,6 +98,20 @@ Refactoring
 
 [Add JawsDB (MySQL) Hosted on Heroku](https://youtu.be/ZIYqFl6DOGQ?t=481)
 
+### Automatically build Angular to static folder
+
+Open `angular.json` and replace the `outputPath`:
+
+```ps
+"outputPath": "../src/main/resources/static",
+```
+
+Then edit the Procfile:
+
+```ps
+web: ng build -prod
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar
+```
 
 ## ng generate Command
 
@@ -129,3 +143,23 @@ ng g module environments/environment
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# MySQLEcommerce
+
+This app is hosted at https://app.infinityfree.net/
+
+# Heroku
+
+[Instructions](https://devcenter.heroku.com/articles/deploying-spring-boot-apps-to-heroku)
+
+```powershell
+$ heroku login
+$ heroku create
+$ heroku apps:rename emiller-ecommerce
+$ git push heroku master
+$ heroku open
+$ heroku logs --tail
+# Attach a databse
+$ heroku addons:create heroku-postgresql
+$ heroku config
+```

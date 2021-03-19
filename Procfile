@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar
+web: cd webapp && ng build --prod && cd .. && java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar
