@@ -83,7 +83,7 @@ Refactoring
 3. Add `baseUrl: 'http://localhost:8080/` to `environment.ts'`.
 1. Add `baseUrl: 'https://emiller-ecommerce.herokuapp.com/'` to `environment.prod.ts`.
 1. Change the `product.service.ts` to use `environment.baseUrl`.
-1. run `ng build` in angular project root and copy the content of `dist` folder to `src/main/resources/static/`.
+1. run `ng build --prod` in angular project root and copy the content of `dist` folder to `src/main/resources/static/`.
 1. create Procfile (for maven): `web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar`
 1. Ensure you have `spring-boot-starter-web` present in dependencies. It has the embedded tomcat and is automatically configured to serve static content from the static folder.
 1. Enable dyno formation under `Resources`.
@@ -109,7 +109,7 @@ Open `angular.json` and replace the `outputPath`:
 Then edit the Procfile:
 
 ```ps
-web: ng build -prod
+web: ng build --prod
 web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar
 ```
 
